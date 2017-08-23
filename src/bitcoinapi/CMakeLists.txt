@@ -16,13 +16,13 @@ SET_TARGET_PROPERTIES(bitcoinapi_static PROPERTIES OUTPUT_NAME bitcoinapi)
 # Link the library with json-rpc-cpp libs
 TARGET_LINK_LIBRARIES(bitcoinapi
                         ${CURL_LIBRARY}
-                        ${JSONCPP_LIBRARY}
+                        ${JSONCPP_LIBRARIES}
                         jsonrpccpp-common
                         jsonrpccpp-client)
 
 TARGET_LINK_LIBRARIES(bitcoinapi_static
                         ${CURL_LIBRARY}
-                        ${JSONCPP_LIBRARY}
+                        ${JSONCPP_LIBRARIES}
                         jsonrpccpp-common
                         jsonrpccpp-client)
 
