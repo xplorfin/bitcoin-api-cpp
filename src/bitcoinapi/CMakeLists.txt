@@ -26,6 +26,16 @@ TARGET_LINK_LIBRARIES(bitcoinapi_static
                         jsonrpccpp-common
                         jsonrpccpp-client)
 
+target_include_directories(bitcoinapi PUBLIC
+                        ${CURL_INCLUDE_DIR}
+                        ${JSONCPP_INCLUDE_DIRS}
+                        ${JSONRPCCPP_INCLUDE_DIRS})
+
+target_include_directories(bitcoinapi_static PUBLIC
+                        ${CURL_INCLUDE_DIR}
+                        ${JSONCPP_INCLUDE_DIRS}
+                        ${JSONRPCCPP_INCLUDE_DIRS})
+
 # Set version settings
 SET(VERSION_STRING ${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION})
 SET_TARGET_PROPERTIES(bitcoinapi bitcoinapi_static PROPERTIES
