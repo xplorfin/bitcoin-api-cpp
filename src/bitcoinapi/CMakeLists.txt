@@ -6,6 +6,8 @@ FIND_PACKAGE(CURL REQUIRED)
 FILE(GLOB bitcoinapi_header ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
 FILE(GLOB bitcoinapi_source ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
+link_directories(${Boost_LIBRARY_DIR_RELEASE})
+
 # Set target libraries
 ADD_LIBRARY(bitcoinapi SHARED ${bitcoinapi_source})
 ADD_LIBRARY(bitcoinapi_static STATIC ${bitcoinapi_source})
@@ -13,8 +15,6 @@ ADD_LIBRARY(bitcoinapi_static STATIC ${bitcoinapi_source})
 # Set output name of static library
 SET_TARGET_PROPERTIES(bitcoinapi_static PROPERTIES OUTPUT_NAME bitcoinapi)
 
-
-link_directories(${Boost_LIBRARY_DIR_RELEASE})
 
 # Link the library with json-rpc-cpp libs
 TARGET_LINK_LIBRARIES(bitcoinapi
