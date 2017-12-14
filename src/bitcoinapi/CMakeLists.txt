@@ -13,6 +13,9 @@ ADD_LIBRARY(bitcoinapi_static STATIC ${bitcoinapi_source})
 # Set output name of static library
 SET_TARGET_PROPERTIES(bitcoinapi_static PROPERTIES OUTPUT_NAME bitcoinapi)
 
+
+link_directories(${Boost_LIBRARY_DIR_RELEASE})
+
 # Link the library with json-rpc-cpp libs
 TARGET_LINK_LIBRARIES(bitcoinapi
                         ${CURL_LIBRARY}
