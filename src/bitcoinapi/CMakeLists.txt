@@ -29,12 +29,12 @@ TARGET_LINK_LIBRARIES(bitcoinapi_static
                         jsonrpccpp-common
                         jsonrpccpp-client)
 
-target_include_directories(bitcoinapi PUBLIC
+target_include_directories(bitcoinapi INTERFACE
                         ${CURL_INCLUDE_DIR}
                         ${JSONCPP_INCLUDE_DIRS}
                         ${JSONRPCCPP_INCLUDE_DIRS})
 
-target_include_directories(bitcoinapi_static PUBLIC
+target_include_directories(bitcoinapi_static INTERFACE
                         ${CURL_INCLUDE_DIR}
                         ${JSONCPP_INCLUDE_DIRS}
                         ${JSONRPCCPP_INCLUDE_DIRS})
