@@ -26,6 +26,23 @@ private:
 public:
     /* === Constructor and Destructor === */
     BitcoinAPI(const std::string& user, const std::string& password, const std::string& host, int port);
+    BitcoinAPI(const BitcoinAPI &) = delete;
+    BitcoinAPI &operator=(const BitcoinAPI &) = delete;
+    BitcoinAPI(BitcoinAPI &&api) : httpClient(api.httpClient), client(api.client) {
+        api.httpClient = nullptr;
+        api.client = nullptr;
+    }
+    BitcoinAPI &operator=(BitcoinAPI &&other) {
+        if (this != &other) {
+            delete httpClient;
+            delete client;
+            httpClient = other.httpClient;
+            client = other.client;
+            other.httpClient = nullptr;
+            other.client = nullptr;
+        }
+        return *this;
+    }
     ~BitcoinAPI();
 
     /* === Auxiliary functions === */
