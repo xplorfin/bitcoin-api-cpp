@@ -37,6 +37,23 @@ BitcoinAPI::BitcoinAPI(const string& user, const string& password, const string&
     httpClient->SetTimeout(50000);
 }
 
+BitcoinAPI::BitcoinAPI(BitcoinAPI &&api) : httpClient(api.httpClient), client(api.client) {
+    api.httpClient = nullptr;
+    api.client = nullptr;
+}
+
+BitcoinAPI &BitcoinAPI::operator=(BitcoinAPI &&other) {
+    if (this != &other) {
+        delete httpClient;
+        delete client;
+        httpClient = other.httpClient;
+        client = other.client;
+        other.httpClient = nullptr;
+        other.client = nullptr;
+    }
+    return *this;
+}
+
 BitcoinAPI::~BitcoinAPI()
 {
     delete client;
