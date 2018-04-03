@@ -13,11 +13,7 @@
 #include <string>
 #include <vector>
 
-#ifdef __APPLE__
 #include <json/json.h>
-#else
-#include <jsoncpp/json/json.h>
-#endif
 
 	/* === General types === */
 	struct getinfo_t{

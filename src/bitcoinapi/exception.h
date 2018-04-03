@@ -13,15 +13,9 @@
 #include <string>
 #include <sstream>
 
-#ifdef __APPLE__
 #include <json/json.h>
 #include <json/reader.h>
 #include <json/value.h>
-#else
-#include <jsoncpp/json/json.h>
-#include <jsoncpp/json/reader.h>
-#include <jsoncpp/json/value.h>
-#endif
 
 #include <jsonrpccpp/client.h>
 
