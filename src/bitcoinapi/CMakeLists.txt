@@ -38,6 +38,9 @@ TARGET_LINK_LIBRARIES(bitcoinapi_static
                         jsoncpp
                         jsonrpccpp)
 
+target_include_directories(bitcoinapi INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/..)
+target_include_directories(bitcoinapi_static INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/..)
+
 # Set version settings
 SET(VERSION_STRING ${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION})
 SET_TARGET_PROPERTIES(bitcoinapi bitcoinapi_static PROPERTIES
