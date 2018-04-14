@@ -48,8 +48,6 @@ public:
 		}
 	}
 
-	~BitcoinException() throw() { };
-
 	int getCode(){
 		return code;
 	}
@@ -62,7 +60,7 @@ public:
 	std::string removePrefix(const std::string& in, const std::string& pattern){
 		std::string ret = in;
 
-		unsigned int pos = ret.find(pattern);
+		auto pos = ret.find(pattern);
 
 		if(pos <= ret.size()){
 			ret.erase(0, pos+pattern.size());
@@ -105,7 +103,7 @@ public:
 		bool parsingSuccessful = reader->parse(strJson.c_str(), strJson.c_str() + strJson.size(), &root, &errs);
 		if(parsingSuccessful) {
 			ret = removePrefix(root["error"]["message"].asString(), "Error: ");
-			ret[0] = toupper(ret[0]);
+			ret[0] = static_cast<char>(toupper(ret[0]));
 		}
 
 		return ret;
