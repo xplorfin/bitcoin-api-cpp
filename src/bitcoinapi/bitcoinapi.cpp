@@ -1049,6 +1049,39 @@ txsinceblock_t BitcoinAPI::listsinceblock(const string& blockhash, int target_co
 	return ret;
 }
 
+std::vector<chaintip_t> BitcoinAPI::getchaintips() {
+	string command = "getchaintips";
+	Value params, result;
+	std::vector<chaintip_t> ret;
+
+	result = sendcommand(command, params);
+
+	for(ValueIterator it = result.begin(); it != result.end(); it++){
+		Value val = (*it);
+		chaintip_t tmp;
+
+		tmp.height = val["height"].asInt();
+		tmp.hash = val["hash"].asString();
+		tmp.branchlen = val["branchlen"].asInt();
+		tmp.status = val["status"].asString();
+
+		ret.push_back(std::move(tmp));
+	}
+	return ret;
+}
+
+std::string BitcoinAPI::getpreviousblockhash(const std::string& blockhash) {
+	string command = "getblockheader";
+	Value params, result;
+	std::vector<chaintip_t> ret;
+
+	params.append(blockhash);
+	result = sendcommand(command, params);
+
+
+	return result["previousblockhash"].asString();
+}
+
 
 /* === Raw transaction calls === */
 getrawtransaction_t BitcoinAPI::getrawtransaction(const string& txid, int verbose) {

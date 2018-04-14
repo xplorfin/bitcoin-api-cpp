@@ -137,6 +137,9 @@ public:
 
     txsinceblock_t listsinceblock(const std::string& blockhash = "", int target_confirmations = 1);
 
+    std::vector<chaintip_t> getchaintips();
+    std::string getpreviousblockhash(const std::string& blockhash);
+
 
     /* === Low level calls === */
     getrawtransaction_t getrawtransaction(const std::string& txid, int verbose = 0);

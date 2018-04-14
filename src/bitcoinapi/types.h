@@ -271,4 +271,11 @@
 		std::string lastblock;
 	};
 
+	struct chaintip_t {
+		int height;
+        std::string hash;
+		int branchlen;
+		std::string status;
+    };
+
 #endif
