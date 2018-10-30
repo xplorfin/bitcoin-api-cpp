@@ -156,6 +156,7 @@
 
 	struct vin_t: txout_t{
 		scriptSig_t scriptSig;
+        std::vector<std::string> txinwitness;
 		unsigned int sequence;
 	};
 

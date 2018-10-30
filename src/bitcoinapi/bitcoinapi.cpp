@@ -1108,6 +1108,9 @@ getrawtransaction_t BitcoinAPI::getrawtransaction(const string& txid, int verbos
 			input.scriptSig.assm = val["scriptSig"]["asm"].asString();
 			input.scriptSig.hex = val["scriptSig"]["hex"].asString();
 			input.sequence = val["sequence"].asUInt();
+			for (ValueIterator it = val["txinwitness"].begin(); it != val["txinwitness"].end(); ++it) {
+				input.txinwitness.push_back(it->asString());
+			}
 			ret.vin.push_back(input);
 		}
 
@@ -1158,6 +1161,9 @@ decoderawtransaction_t BitcoinAPI::decoderawtransaction(const string& hexString)
 		input.scriptSig.assm = val["scriptSig"]["asm"].asString();
 		input.scriptSig.hex = val["scriptSig"]["hex"].asString();
 		input.sequence = val["sequence"].asUInt();
+		for (ValueIterator it = val["txinwitness"].begin(); it != val["txinwitness"].end(); ++it) {
+			input.txinwitness.push_back(it->asString());
+		}
 		ret.vin.push_back(input);
 	}
 
