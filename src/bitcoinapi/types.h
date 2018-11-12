@@ -169,7 +169,7 @@
 	struct decoderawtransaction_t{
 		std::string txid;
 		int version;
-		int locktime;
+		unsigned int locktime;
 		std::vector<vin_t> vin;
 		std::vector<vout_t> vout;
 	};

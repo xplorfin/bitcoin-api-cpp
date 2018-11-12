@@ -1098,7 +1098,7 @@ getrawtransaction_t BitcoinAPI::getrawtransaction(const string& txid, int verbos
 	if(verbose != 0){
 		ret.txid = result["txid"].asString();
 		ret.version = result["version"].asInt();
-		ret.locktime = result["locktime"].asInt();
+		ret.locktime = result["locktime"].asUInt();
 		for (ValueIterator it = result["vin"].begin(); it != result["vin"].end();
 				it++) {
 			Value val = (*it);
@@ -1151,7 +1151,7 @@ decoderawtransaction_t BitcoinAPI::decoderawtransaction(const string& hexString)
 
 	ret.txid = result["txid"].asString();
 	ret.version = result["version"].asInt();
-	ret.locktime = result["locktime"].asInt();
+	ret.locktime = result["locktime"].asUInt();
 	for (ValueIterator it = result["vin"].begin(); it != result["vin"].end();
 			it++) {
 		Value val = (*it);
