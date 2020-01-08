@@ -1,4 +1,4 @@
-FIND_PACKAGE(JSONCPP REQUIRED)
+#FIND_PACKAGE(JSONCPP REQUIRED)
 FIND_PACKAGE(JSONRPCCPP REQUIRED)
 FIND_PACKAGE(CURL REQUIRED)
 
@@ -6,9 +6,9 @@ add_library(curl INTERFACE)
 target_link_libraries(curl INTERFACE ${CURL_LIBRARIES})
 target_include_directories(curl INTERFACE ${CURL_INCLUDE_DIRS})
 
-add_library(jsoncpp INTERFACE)
-target_link_libraries(jsoncpp INTERFACE ${JSONCPP_LIBRARIES})
-target_include_directories(jsoncpp INTERFACE ${JSONCPP_INCLUDE_DIRS})
+#add_library(jsoncpp INTERFACE)
+#target_link_libraries(jsoncpp INTERFACE ${JSONCPP_LIBRARIES})
+#target_include_directories(jsoncpp INTERFACE ${JSONCPP_INCLUDE_DIRS})
 
 add_library(jsonrpccpp INTERFACE)
 target_link_libraries(jsonrpccpp INTERFACE ${JSONRPCCPP_LIBRARIES})
