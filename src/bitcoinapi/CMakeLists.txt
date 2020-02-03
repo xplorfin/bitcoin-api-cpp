@@ -11,7 +11,7 @@ target_include_directories(curl INTERFACE ${CURL_INCLUDE_DIRS})
 #target_include_directories(jsoncpp INTERFACE ${JSONCPP_INCLUDE_DIRS})
 
 #hunter_add_package(jsoncpp)
-find_package(jsoncpp)
+#find_package(jsoncpp)
 
 add_library(jsonrpccpp INTERFACE)
 target_link_libraries(jsonrpccpp INTERFACE ${JSONRPCCPP_LIBRARIES})
